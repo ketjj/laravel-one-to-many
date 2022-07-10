@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
+
     public static function SlugGen($title){
         $slug = Str::slug($title, '-');
         $base_slug = $slug;
