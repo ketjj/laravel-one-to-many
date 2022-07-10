@@ -34,15 +34,15 @@ class PostRequest extends FormRequest
     public function messages(){
         return[
           'title.required' => 'Il campo titolo è obbligatorio',
-          'title.min' => 'Debba inserire min 3 caratteri',
-          'title.min' => 'Debba inserire max 255 caratteri',
+          'title.min' => 'Debba inserire :min caratteri',
+          'title.min' => 'Debba inserire :max  caratteri',
           'content.required' => 'Il campo content è obbligatorio',
-          'content.min' => 'Debba inserire min 10 caratteri',
+          'content.min' => 'Debba inserire :min  caratteri',
           'image.required' => 'Il campo image è obbligatorio',
-          'image.min' => 'Debba inserire min 10 caratteri',
+          'image.min' => 'Debba inserire :min caratteri',
           'author.required' => 'Il campo author è obbligatorio',
-          'author.min' => 'Debba inserire min 3 caratteri',
-          'author.min' => 'Debba inserire max 255 caratteri'
+          'author.min' => 'Debba inserire :min caratteri',
+          'author.min' => 'Debba inserire :max caratteri'
         ];
     }
 }
