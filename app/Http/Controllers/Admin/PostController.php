@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
+use App\Category;
 use App\Post;
 use App\Http\Requests\PostRequest;
 
@@ -17,6 +19,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id')->paginate(10);
+        $categories = Category::all();
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -27,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -56,7 +60,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('admin.posts.show', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.show', compact('post','categories'));
     }
 
     /**
@@ -66,10 +71,11 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
+        $categories = Category::all();
         $post = Post::find($id);
         if($post){
-            return view('admin.posts.edit', compact('post'));
+            return view('admin.posts.edit', compact('post', 'categories'));
         }
         abort(404, 'Post non presente nella pagina');
 

@@ -31,6 +31,7 @@ class Post extends Model
         'slug',
         'content',
         'image',
-        'author'
+        'author',
+        'category_id'
     ];
 }

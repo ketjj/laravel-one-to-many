@@ -27,6 +27,18 @@
      @enderror
     </div>
 
+    <div class="my-4">
+      <select class="form-select" name="category_id">
+        <option value="">Seleziona una categoria</option>
+        @foreach ($categories as $category)
+
+         <option @if($category->id == old('category_id', $post->category ? $post->category->id : '' )) selected @endif value="{{ $category->id}}">{{$category->name}}</option>
+        @endforeach
+
+      </select>
+    </div>
+
+
     <div class="form-group my-3">
       <label for="image" class="my-2">URL immagine</label>
       <input type="text" name="image" class="form-control @error('image') is-invalid @enderror" placeholder="URL immagine"

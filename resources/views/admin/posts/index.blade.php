@@ -19,7 +19,7 @@
           <tr>
               <td> {{$post->id}}</td>
               <td> {{$post->title}}</td>
-              <td> {{$post->category['name']}}</td>
+              <td> {{$post->category ? $post->category->name : '-'}}</td>
               <td>
                  <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-warning k_button">SHOW</a>
                   <a href="{{ route('admin.posts.edit', $post)}}" class="btn btn-info k_button">EDIT</a> 
@@ -41,5 +41,7 @@
       </tbody>
     </table>
     {{ $posts->links()}}
-  </div>
+    
+
+
 @endsection
